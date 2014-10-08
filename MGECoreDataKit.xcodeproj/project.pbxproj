@@ -95,7 +95,7 @@
 				7299D1F219E56C820092CB2C /* MasterViewController.h */,
 				7299D1F319E56C820092CB2C /* MasterViewController.m */,
 				7299D1F719E56CF20092CB2C /* Model.xcdatamodeld */,
-				7299D1FE19E571E90092CB2C /* Classes */,
+				7299D1FE19E571E90092CB2C /* MGECoreDataKit */,
 				7299D1BB19E56C0F0092CB2C /* Images.xcassets */,
 				7299D1BD19E56C0F0092CB2C /* LaunchScreen.xib */,
 				7299D1F519E56CD30092CB2C /* Main.storyboard */,
@@ -130,7 +130,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7299D1FE19E571E90092CB2C /* Classes */ = {
+		7299D1FE19E571E90092CB2C /* MGECoreDataKit */ = {
 			isa = PBXGroup;
 			children = (
 				7238EA0A19E57771001E42B7 /* MGECoreDataKit.h */,
@@ -139,7 +139,7 @@
 				7299D20119E571E90092CB2C /* MGEQuickFRC.h */,
 				7299D20219E571E90092CB2C /* MGEQuickFRC.m */,
 			);
-			path = Classes;
+			path = MGECoreDataKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
