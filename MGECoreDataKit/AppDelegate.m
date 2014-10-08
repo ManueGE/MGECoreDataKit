@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MasterViewController.h"
-#import "MGECoreDataManager.h"
+#import "MGECoreDataKit.h"
 
 @interface AppDelegate ()
 

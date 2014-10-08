@@ -30,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7238EA0A19E57771001E42B7 /* MGECoreDataKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGECoreDataKit.h; sourceTree = "<group>"; };
 		7299D1A819E56C0F0092CB2C /* MGECoreDataKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGECoreDataKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7299D1AC19E56C0F0092CB2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7299D1AD19E56C0F0092CB2C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -132,6 +133,7 @@
 		7299D1FE19E571E90092CB2C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				7238EA0A19E57771001E42B7 /* MGECoreDataKit.h */,
 				7299D1FF19E571E90092CB2C /* MGECoreDataManager.h */,
 				7299D20019E571E90092CB2C /* MGECoreDataManager.m */,
 				7299D20119E571E90092CB2C /* MGEQuickFRC.h */,
@@ -428,6 +430,7 @@
 				7299D1D019E56C0F0092CB2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7299D1D119E56C0F0092CB2C /* Build configuration list for PBXNativeTarget "MGECoreDataKitTests" */ = {
 			isa = XCConfigurationList;
@@ -436,6 +439,7 @@
 				7299D1D319E56C0F0092CB2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
