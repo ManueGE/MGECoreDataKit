@@ -5,6 +5,7 @@
 
 #import <CoreData/CoreData.h>
 
+__attribute__ ((deprecated))
 @interface MGECoreDataManager : NSObject
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

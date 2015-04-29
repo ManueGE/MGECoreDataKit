@@ -17,6 +17,7 @@
 		7299D1F919E56CF20092CB2C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7299D1F719E56CF20092CB2C /* Model.xcdatamodeld */; };
 		7299D20319E571E90092CB2C /* MGECoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299D20019E571E90092CB2C /* MGECoreDataManager.m */; };
 		7299D20419E571E90092CB2C /* MGEQuickFRC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299D20219E571E90092CB2C /* MGEQuickFRC.m */; };
+		72F295321AF0C73500457363 /* MGECoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F295311AF0C73500457363 /* MGECoreDataStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		7299D20019E571E90092CB2C /* MGECoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGECoreDataManager.m; sourceTree = "<group>"; };
 		7299D20119E571E90092CB2C /* MGEQuickFRC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGEQuickFRC.h; sourceTree = "<group>"; };
 		7299D20219E571E90092CB2C /* MGEQuickFRC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGEQuickFRC.m; sourceTree = "<group>"; };
+		72F295301AF0C73500457363 /* MGECoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGECoreDataStack.h; sourceTree = "<group>"; };
+		72F295311AF0C73500457363 /* MGECoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGECoreDataStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,8 @@
 				7238EA0A19E57771001E42B7 /* MGECoreDataKit.h */,
 				7299D1FF19E571E90092CB2C /* MGECoreDataManager.h */,
 				7299D20019E571E90092CB2C /* MGECoreDataManager.m */,
+				72F295301AF0C73500457363 /* MGECoreDataStack.h */,
+				72F295311AF0C73500457363 /* MGECoreDataStack.m */,
 				7299D20119E571E90092CB2C /* MGEQuickFRC.h */,
 				7299D20219E571E90092CB2C /* MGEQuickFRC.m */,
 			);
@@ -243,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7299D1F419E56C820092CB2C /* MasterViewController.m in Sources */,
+				72F295321AF0C73500457363 /* MGECoreDataStack.m in Sources */,
 				7299D1B119E56C0F0092CB2C /* AppDelegate.m in Sources */,
 				7299D20319E571E90092CB2C /* MGECoreDataManager.m in Sources */,
 				7299D20419E571E90092CB2C /* MGEQuickFRC.m in Sources */,
