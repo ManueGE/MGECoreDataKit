@@ -6,5 +6,5 @@
 //  Copyright (c) 2014 manuege. All rights reserved.
 //
 
-#import "MGECoreDataManager.h"
+#import "MGECoreDataStack.h"
 #import "MGEQuickFRC.h"
