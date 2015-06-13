@@ -25,8 +25,8 @@
 + (void) setDefaultModelName:(NSString *) modelName;
 
 /*!
- Returns the main stack. This stack will use the defined DefaultModelName or will 
- merge all the available models if it is not set. The `NSManagedObjectContext` of 
+ Returns the main stack. This stack will use the defined DefaultModelName or will
+ merge all the available models if it is not set. The `NSManagedObjectContext` of
  the main stack will use `NSMainQueueConcurrencyType` as concurrency type
  \return the instance
  */
@@ -50,10 +50,17 @@
 + (instancetype) temporaryStack;
 
 /*!
- Instantiates a child context of the managed object context. 
+ Instantiates a child context of the managed object context.
+ The `NSManagedObjectContext` will use `NSPrivateQueueConcurrencyType`
  \return the context
  */
 - (NSManagedObjectContext *) createChildContext;
+
+/*!
+ Instantiates a child context of the managed object context.
+ \return the context
+ */
+- (NSManagedObjectContext *) createChildContextWithConcurrencyType:(NSManagedObjectContextConcurrencyType) concurrencyType;
 
 /*!
  Save the managed object context
