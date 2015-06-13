@@ -25,7 +25,10 @@ static NSString * ModelName;
     static dispatch_once_t onceToken;
     static MGECoreDataManager *sharedManager = nil;
     dispatch_once(&onceToken, ^{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
         sharedManager = [MGECoreDataManager new];
+#pragma clang diagnostic pop
     });
     return sharedManager;
 }

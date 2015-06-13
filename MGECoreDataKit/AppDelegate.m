@@ -19,11 +19,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	
-	[MGECoreDataManager setModelName:@"Model"];
+	[MGECoreDataStack setDefaultModelName:@"Model"];
 	
 	UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
 	MasterViewController *controller = (MasterViewController *)navigationController.topViewController;
-	controller.managedObjectContext = [MGECoreDataManager sharedManager].managedObjectContext;
+	controller.managedObjectContext = [MGECoreDataStack mainStack].managedObjectContext;
 	return YES;
 }
 
