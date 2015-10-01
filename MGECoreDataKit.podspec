@@ -16,9 +16,9 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MGECoreDataKit"
-  s.version      = "0.0.1"
+  s.version      = "1.1.0"
   s.summary      = "Helper classes for handle CoreData"
-  s.description  = "`MGECoreDataManager`: Used to encapsulate all the core data stack.
+  s.description  = "`MGECoreDataStack`: Used to encapsulate all the core data stack.
                     `MGEQuickFRC`: This class tries to encapsulate the boilerplate code that usually is added to a view controller when using a `NSFetchedResultsController` object.  A `UITableView` or a `UICollectionView` can be assigned to instances of this class, and then will be updated on every update, insertion or deletion in the data model"
   s.homepage     = "https://github.com/ManueGE/MGECoreDataKit"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
@@ -70,7 +70,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/ManueGE/MGECoreDataKit.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/ManueGE/MGECoreDataKit.git", :tag => "1.1.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

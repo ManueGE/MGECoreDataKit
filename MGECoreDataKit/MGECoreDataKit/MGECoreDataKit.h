@@ -8,3 +8,4 @@
 
 #import "MGECoreDataStack.h"
 #import "MGEQuickFRC.h"
+#import "NSManagedObjectContext+MGECoreDataKit.h"

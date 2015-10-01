@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		724B70631BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 724B70621BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m */; settings = {ASSET_TAGS = (); }; };
+		724B706F1BBD5AE9008F2550 /* Event+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 724B706C1BBD5AE9008F2550 /* Event+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		724B70701BBD5AE9008F2550 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 724B706E1BBD5AE9008F2550 /* Event.m */; settings = {ASSET_TAGS = (); }; };
 		7299D1AE19E56C0F0092CB2C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299D1AD19E56C0F0092CB2C /* main.m */; };
 		7299D1B119E56C0F0092CB2C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299D1B019E56C0F0092CB2C /* AppDelegate.m */; };
 		7299D1BC19E56C0F0092CB2C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7299D1BB19E56C0F0092CB2C /* Images.xcassets */; };
@@ -15,7 +18,6 @@
 		7299D1F419E56C820092CB2C /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299D1F319E56C820092CB2C /* MasterViewController.m */; };
 		7299D1F619E56CD30092CB2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7299D1F519E56CD30092CB2C /* Main.storyboard */; };
 		7299D1F919E56CF20092CB2C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7299D1F719E56CF20092CB2C /* Model.xcdatamodeld */; };
-		7299D20319E571E90092CB2C /* MGECoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299D20019E571E90092CB2C /* MGECoreDataManager.m */; };
 		7299D20419E571E90092CB2C /* MGEQuickFRC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299D20219E571E90092CB2C /* MGEQuickFRC.m */; };
 		72F295321AF0C73500457363 /* MGECoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F295311AF0C73500457363 /* MGECoreDataStack.m */; };
 /* End PBXBuildFile section */
@@ -32,6 +34,12 @@
 
 /* Begin PBXFileReference section */
 		7238EA0A19E57771001E42B7 /* MGECoreDataKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGECoreDataKit.h; sourceTree = "<group>"; };
+		724B70611BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MGECoreDataKit.h"; sourceTree = "<group>"; };
+		724B70621BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MGECoreDataKit.m"; sourceTree = "<group>"; };
+		724B706B1BBD5AE9008F2550 /* Event+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Event+CoreDataProperties.h"; sourceTree = "<group>"; };
+		724B706C1BBD5AE9008F2550 /* Event+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Event+CoreDataProperties.m"; sourceTree = "<group>"; };
+		724B706D1BBD5AE9008F2550 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		724B706E1BBD5AE9008F2550 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		7299D1A819E56C0F0092CB2C /* MGECoreDataKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGECoreDataKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7299D1AC19E56C0F0092CB2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7299D1AD19E56C0F0092CB2C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -46,8 +54,6 @@
 		7299D1F319E56C820092CB2C /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		7299D1F519E56CD30092CB2C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7299D1F819E56CF20092CB2C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		7299D1FF19E571E90092CB2C /* MGECoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGECoreDataManager.h; sourceTree = "<group>"; };
-		7299D20019E571E90092CB2C /* MGECoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGECoreDataManager.m; sourceTree = "<group>"; };
 		7299D20119E571E90092CB2C /* MGEQuickFRC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGEQuickFRC.h; sourceTree = "<group>"; };
 		7299D20219E571E90092CB2C /* MGEQuickFRC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGEQuickFRC.m; sourceTree = "<group>"; };
 		72F295301AF0C73500457363 /* MGECoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGECoreDataStack.h; sourceTree = "<group>"; };
@@ -72,6 +78,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		724B706A1BBD5AE9008F2550 /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				724B706B1BBD5AE9008F2550 /* Event+CoreDataProperties.h */,
+				724B706C1BBD5AE9008F2550 /* Event+CoreDataProperties.m */,
+				724B706D1BBD5AE9008F2550 /* Event.h */,
+				724B706E1BBD5AE9008F2550 /* Event.m */,
+			);
+			path = entities;
+			sourceTree = "<group>";
+		};
 		7299D19F19E56C0F0092CB2C = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +115,7 @@
 				7299D1F219E56C820092CB2C /* MasterViewController.h */,
 				7299D1F319E56C820092CB2C /* MasterViewController.m */,
 				7299D1F719E56CF20092CB2C /* Model.xcdatamodeld */,
+				724B706A1BBD5AE9008F2550 /* entities */,
 				7299D1FE19E571E90092CB2C /* MGECoreDataKit */,
 				7299D1BB19E56C0F0092CB2C /* Images.xcassets */,
 				7299D1BD19E56C0F0092CB2C /* LaunchScreen.xib */,
@@ -137,12 +155,12 @@
 			isa = PBXGroup;
 			children = (
 				7238EA0A19E57771001E42B7 /* MGECoreDataKit.h */,
-				7299D1FF19E571E90092CB2C /* MGECoreDataManager.h */,
-				7299D20019E571E90092CB2C /* MGECoreDataManager.m */,
 				72F295301AF0C73500457363 /* MGECoreDataStack.h */,
 				72F295311AF0C73500457363 /* MGECoreDataStack.m */,
 				7299D20119E571E90092CB2C /* MGEQuickFRC.h */,
 				7299D20219E571E90092CB2C /* MGEQuickFRC.m */,
+				724B70611BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.h */,
+				724B70621BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m */,
 			);
 			path = MGECoreDataKit;
 			sourceTree = "<group>";
@@ -247,10 +265,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				724B70701BBD5AE9008F2550 /* Event.m in Sources */,
 				7299D1F419E56C820092CB2C /* MasterViewController.m in Sources */,
+				724B70631BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m in Sources */,
+				724B706F1BBD5AE9008F2550 /* Event+CoreDataProperties.m in Sources */,
 				72F295321AF0C73500457363 /* MGECoreDataStack.m in Sources */,
 				7299D1B119E56C0F0092CB2C /* AppDelegate.m in Sources */,
-				7299D20319E571E90092CB2C /* MGECoreDataManager.m in Sources */,
 				7299D20419E571E90092CB2C /* MGEQuickFRC.m in Sources */,
 				7299D1AE19E56C0F0092CB2C /* main.m in Sources */,
 				7299D1F919E56CF20092CB2C /* Model.xcdatamodeld in Sources */,
