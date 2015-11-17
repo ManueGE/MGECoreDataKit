@@ -307,18 +307,33 @@ NSString * const MGEQuickFRCFetchBatchSizeKey = @"MGEQuickFRCFetchBatchSizeKey";
                             case NSFetchedResultsChangeUpdate:
                                 [self.collectionView reloadItemsAtIndexPaths:@[obj]];
                                 break;
-                            case NSFetchedResultsChangeMove:
-                                [self.collectionView moveItemAtIndexPath:obj[0] toIndexPath:obj[1]];
-                                break;
-                                
+							case NSFetchedResultsChangeMove:
+							{
+								NSIndexPath * indexPath = obj[0];
+								NSIndexPath * newIndexPath = obj[1];
+								
+								if (indexPath.section != newIndexPath.section ||
+									indexPath.item != newIndexPath.item) {
+									
+									[self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+									[self.collectionView insertItemsAtIndexPaths:@[newIndexPath ]];
+								}
+								
+								else {
+									[self.collectionView moveItemAtIndexPath:obj[0] toIndexPath:obj[1]];
+								}
+								
+							}
+								break;
+								
                             default:
                                 break;
                         }
-                        
+						
                     }
                 } completion:nil];
             }
-            
+			
             [_sectionChanges removeAllObjects];
             [_objectChanges removeAllObjects];
         }
