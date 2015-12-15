@@ -8,6 +8,8 @@
 
 #import "MasterViewController.h"
 #import "MGEQuickFRC.h"
+#import "NSManagedObjectContext+MGECoreDataKit.h"
+#import "Event.h"
 
 @interface MasterViewController ()
 
@@ -39,8 +41,7 @@
 #pragma mark - actions
 - (void)insertNewObject:(id)sender {
 	NSManagedObjectContext *context = self.managedObjectContext;
-	NSString * entityName = self.quickFRC.entityName;
-	NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:context];
+	NSManagedObject *newManagedObject = [context insertObjectOfClass:[Event class]];
 	    
 	// If appropriate, configure the new managed object.
 	// Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
@@ -101,6 +102,11 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
 	NSManagedObject *object = [self.quickFRC objectAtIndexPath:indexPath];
 	cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSLog(@"%@", [self.quickFRC.managedObjectContext fetchClass:[Event class]
+														  error:nil]);
 }
 
 #pragma mark - Fetched results controller
