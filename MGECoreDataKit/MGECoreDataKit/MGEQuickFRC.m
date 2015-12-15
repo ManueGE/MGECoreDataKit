@@ -165,7 +165,9 @@ NSString * const MGEQuickFRCFetchBatchSizeKey = @"MGEQuickFRCFetchBatchSizeKey";
                     
                     break;
             }
+            
         }
+        
         
         //Collection
         UICollectionView * collectionView = self.collectionView;
@@ -248,155 +250,106 @@ NSString * const MGEQuickFRCFetchBatchSizeKey = @"MGEQuickFRCFetchBatchSizeKey";
     dispatch_async(dispatch_get_main_queue(), ^{
         // The fetch controller has sent all current change notifications, so tell the table view to process all updates.
         if (self.tableView) {
-            @try {
-                [self.tableView endUpdates];
-            }
-            @catch (NSException *exception) {
-                [self.tableView reloadData];
-            }
+            [self.tableView endUpdates];
         }
+        
         
         if (self.collectionView) {
             
             if (!self.collectionView.window) {
-                [self clearChanges];
                 [self.collectionView reloadData];
+                
+                [_sectionChanges removeAllObjects];
+                [_objectChanges removeAllObjects];
                 return;
+                
             }
             
-            @try {
-                [self commitCollectionViewChanges];
+            if ([_sectionChanges count] > 0)
+            {
+                [self.collectionView performBatchUpdates:^{
+                    
+                    for (NSDictionary *change in _sectionChanges)
+                    {
+                        [change enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, id obj, BOOL *stop) {
+                            
+                            NSFetchedResultsChangeType type = [key unsignedIntegerValue];
+                            switch (type)
+                            {
+                                case NSFetchedResultsChangeInsert:
+                                    [self.collectionView insertSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
+                                    break;
+                                case NSFetchedResultsChangeDelete:
+                                    [self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
+                                    break;
+                                case NSFetchedResultsChangeUpdate:
+                                    [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
+                                    break;
+                                    
+                                default:
+                                    break;
+                            }
+                            
+                        }];
+                    }
+                } completion:^(BOOL finished) {
+                    [_sectionChanges removeAllObjects];
+                }];
             }
-            @catch (NSException *exception) {
-                [self.collectionView reloadData];
+            
+            if ([_objectChanges count] > 0 && [_sectionChanges count] == 0)
+            {
+                [self.collectionView performBatchUpdates:^{
+                    
+                    for (NSDictionary *change in _objectChanges)
+                    {
+                        
+                        id key = change.allKeys.lastObject;
+                        id obj = change[key];
+                        
+                        NSFetchedResultsChangeType type = [key unsignedIntegerValue];
+                        switch (type)
+                        {
+                            case NSFetchedResultsChangeInsert:
+                                [self.collectionView insertItemsAtIndexPaths:@[obj]];
+                                break;
+                            case NSFetchedResultsChangeDelete:
+                                [self.collectionView deleteItemsAtIndexPaths:@[obj]];
+                                break;
+                            case NSFetchedResultsChangeUpdate:
+                                [self.collectionView reloadItemsAtIndexPaths:@[obj]];
+                                break;
+                            case NSFetchedResultsChangeMove:
+                            {
+                                NSIndexPath * indexPath = obj[0];
+                                NSIndexPath * newIndexPath = obj[1];
+                                
+                                if (indexPath.section != newIndexPath.section ||
+                                    indexPath.item != newIndexPath.item) {
+                                    
+                                    [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+                                    [self.collectionView insertItemsAtIndexPaths:@[newIndexPath ]];
+                                }
+                                
+                                else {
+                                    [self.collectionView moveItemAtIndexPath:obj[0] toIndexPath:obj[1]];
+                                }
+                                
+                            }
+                                break;
+                                
+                            default:
+                                break;
+                        }
+                        
+                    }
+                } completion:^(BOOL finished) {
+                    [_objectChanges removeAllObjects];
+                }];
+                
             }
         }
     });
 }
 
-- (void) commitCollectionViewChanges {
-    if ([_sectionChanges count] > 0)
-    {
-        [self.collectionView performBatchUpdates:^{
-            
-            for (NSDictionary *change in _sectionChanges)
-            {
-                [change enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, id obj, BOOL *stop) {
-                    
-                    NSFetchedResultsChangeType type = [key unsignedIntegerValue];
-                    switch (type)
-                    {
-                        case NSFetchedResultsChangeInsert:
-                            [self.collectionView insertSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
-                            break;
-                        case NSFetchedResultsChangeDelete:
-                            [self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
-                            break;
-                        case NSFetchedResultsChangeUpdate:
-                            [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
-                            break;
-                            
-                        default:
-                            break;
-                    }
-                    
-                }];
-            }
-        } completion:nil];
-    }
-    
-    if ([_objectChanges count] > 0 && [_sectionChanges count] == 0)
-    {
-        [self.collectionView performBatchUpdates:^{
-            
-            for (NSDictionary *change in _objectChanges)
-            {
-                
-                id key = change.allKeys.lastObject;
-                id obj = change[key];
-                
-                NSFetchedResultsChangeType type = [key unsignedIntegerValue];
-                switch (type)
-                {
-                    case NSFetchedResultsChangeInsert:
-                        [self.collectionView insertItemsAtIndexPaths:@[obj]];
-                        break;
-                    case NSFetchedResultsChangeDelete:
-                        [self.collectionView deleteItemsAtIndexPaths:@[obj]];
-                        break;
-                    case NSFetchedResultsChangeUpdate:
-                        [self.collectionView reloadItemsAtIndexPaths:@[obj]];
-                        break;
-                    case NSFetchedResultsChangeMove:
-                        [self.collectionView moveItemAtIndexPath:obj[0] toIndexPath:obj[1]];
-                        break;
-                        
-                    default:
-                        break;
-                }
-                
-            }
-        } completion:^(BOOL finished) {
-            [_objectChanges removeAllObjects];
-        }];
-        
-        if ([_objectChanges count] > 0 && [_sectionChanges count] == 0)
-        {
-            [self.collectionView performBatchUpdates:^{
-                
-                for (NSDictionary *change in _objectChanges)
-                {
-                    
-                    id key = change.allKeys.lastObject;
-                    id obj = change[key];
-                    
-                    NSFetchedResultsChangeType type = [key unsignedIntegerValue];
-                    switch (type)
-                    {
-                        case NSFetchedResultsChangeInsert:
-                            [self.collectionView insertItemsAtIndexPaths:@[obj]];
-                            break;
-                        case NSFetchedResultsChangeDelete:
-                            [self.collectionView deleteItemsAtIndexPaths:@[obj]];
-                            break;
-                        case NSFetchedResultsChangeUpdate:
-                            [self.collectionView reloadItemsAtIndexPaths:@[obj]];
-                            break;
-                        case NSFetchedResultsChangeMove:
-                        {
-                            NSIndexPath * indexPath = obj[0];
-                            NSIndexPath * newIndexPath = obj[1];
-                            
-                            if (indexPath.section != newIndexPath.section ||
-                                indexPath.item != newIndexPath.item) {
-                                
-                                [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
-                                [self.collectionView insertItemsAtIndexPaths:@[newIndexPath ]];
-                            }
-                            
-                            else {
-                                [self.collectionView moveItemAtIndexPath:obj[0] toIndexPath:obj[1]];
-                            }
-                            
-                        }
-                            break;
-                            
-                        default:
-                            break;
-                    }
-                    
-                }
-            } completion:^(BOOL finished) {
-                [_sectionChanges removeAllObjects];
-            }];
-        }
-        
-    }
-}
-
-- (void) clearChanges {
-    [_sectionChanges removeAllObjects];
-    [_objectChanges removeAllObjects];
-}
 @end
-
