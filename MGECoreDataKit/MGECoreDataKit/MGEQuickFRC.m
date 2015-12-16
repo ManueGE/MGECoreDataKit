@@ -292,13 +292,10 @@ NSString * const MGEQuickFRCFetchBatchSizeKey = @"MGEQuickFRCFetchBatchSizeKey";
                             
                         }];
                     }
-                } completion:^(BOOL finished) {
-                    [_sectionChanges removeAllObjects];
-                }];
+                } completion:nil];
             }
             
-            if ([_objectChanges count] > 0 && [_sectionChanges count] == 0)
-            {
+            if ([_objectChanges count] > 0 && [_sectionChanges count] == 0) {
                 [self.collectionView performBatchUpdates:^{
                     
                     for (NSDictionary *change in _objectChanges)
@@ -343,11 +340,11 @@ NSString * const MGEQuickFRCFetchBatchSizeKey = @"MGEQuickFRCFetchBatchSizeKey";
                         }
                         
                     }
-                } completion:^(BOOL finished) {
-                    [_objectChanges removeAllObjects];
-                }];
-                
+                } completion:nil];
             }
+            
+            [_sectionChanges removeAllObjects];
+            [_objectChanges removeAllObjects];
         }
     });
 }
