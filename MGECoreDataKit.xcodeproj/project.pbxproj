@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		724B70631BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 724B70621BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m */; settings = {ASSET_TAGS = (); }; };
-		724B706F1BBD5AE9008F2550 /* Event+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 724B706C1BBD5AE9008F2550 /* Event+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		724B70701BBD5AE9008F2550 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 724B706E1BBD5AE9008F2550 /* Event.m */; settings = {ASSET_TAGS = (); }; };
+		32F747C31C42A7A50051CA27 /* MGEQuickFRC.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F747C21C42A7A50051CA27 /* MGEQuickFRC.m */; };
+		32F747C61C42A7CE0051CA27 /* MGEQuickFRCTableViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F747C51C42A7CE0051CA27 /* MGEQuickFRCTableViewHandler.m */; };
+		32F747C91C42A7DB0051CA27 /* MGEQuickFRCCollectionViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F747C81C42A7DB0051CA27 /* MGEQuickFRCCollectionViewHandler.m */; };
+		724B70631BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 724B70621BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m */; };
+		724B706F1BBD5AE9008F2550 /* Event+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 724B706C1BBD5AE9008F2550 /* Event+CoreDataProperties.m */; };
+		724B70701BBD5AE9008F2550 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 724B706E1BBD5AE9008F2550 /* Event.m */; };
 		7299D1AE19E56C0F0092CB2C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299D1AD19E56C0F0092CB2C /* main.m */; };
 		7299D1B119E56C0F0092CB2C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299D1B019E56C0F0092CB2C /* AppDelegate.m */; };
 		7299D1BC19E56C0F0092CB2C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7299D1BB19E56C0F0092CB2C /* Images.xcassets */; };
@@ -18,7 +21,6 @@
 		7299D1F419E56C820092CB2C /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299D1F319E56C820092CB2C /* MasterViewController.m */; };
 		7299D1F619E56CD30092CB2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7299D1F519E56CD30092CB2C /* Main.storyboard */; };
 		7299D1F919E56CF20092CB2C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7299D1F719E56CF20092CB2C /* Model.xcdatamodeld */; };
-		7299D20419E571E90092CB2C /* MGEQuickFRC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7299D20219E571E90092CB2C /* MGEQuickFRC.m */; };
 		72F295321AF0C73500457363 /* MGECoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F295311AF0C73500457363 /* MGECoreDataStack.m */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32F747C11C42A7A50051CA27 /* MGEQuickFRC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGEQuickFRC.h; sourceTree = "<group>"; };
+		32F747C21C42A7A50051CA27 /* MGEQuickFRC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGEQuickFRC.m; sourceTree = "<group>"; };
+		32F747C41C42A7CE0051CA27 /* MGEQuickFRCTableViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGEQuickFRCTableViewHandler.h; sourceTree = "<group>"; };
+		32F747C51C42A7CE0051CA27 /* MGEQuickFRCTableViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGEQuickFRCTableViewHandler.m; sourceTree = "<group>"; };
+		32F747C71C42A7DB0051CA27 /* MGEQuickFRCCollectionViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGEQuickFRCCollectionViewHandler.h; sourceTree = "<group>"; };
+		32F747C81C42A7DB0051CA27 /* MGEQuickFRCCollectionViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGEQuickFRCCollectionViewHandler.m; sourceTree = "<group>"; };
 		7238EA0A19E57771001E42B7 /* MGECoreDataKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGECoreDataKit.h; sourceTree = "<group>"; };
 		724B70611BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MGECoreDataKit.h"; sourceTree = "<group>"; };
 		724B70621BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MGECoreDataKit.m"; sourceTree = "<group>"; };
@@ -54,8 +62,6 @@
 		7299D1F319E56C820092CB2C /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		7299D1F519E56CD30092CB2C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7299D1F819E56CF20092CB2C /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		7299D20119E571E90092CB2C /* MGEQuickFRC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGEQuickFRC.h; sourceTree = "<group>"; };
-		7299D20219E571E90092CB2C /* MGEQuickFRC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGEQuickFRC.m; sourceTree = "<group>"; };
 		72F295301AF0C73500457363 /* MGECoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGECoreDataStack.h; sourceTree = "<group>"; };
 		72F295311AF0C73500457363 /* MGECoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGECoreDataStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +84,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32F747C01C42A7A50051CA27 /* MGEQuickFRC */ = {
+			isa = PBXGroup;
+			children = (
+				32F747C11C42A7A50051CA27 /* MGEQuickFRC.h */,
+				32F747C21C42A7A50051CA27 /* MGEQuickFRC.m */,
+				32F747C41C42A7CE0051CA27 /* MGEQuickFRCTableViewHandler.h */,
+				32F747C51C42A7CE0051CA27 /* MGEQuickFRCTableViewHandler.m */,
+				32F747C71C42A7DB0051CA27 /* MGEQuickFRCCollectionViewHandler.h */,
+				32F747C81C42A7DB0051CA27 /* MGEQuickFRCCollectionViewHandler.m */,
+			);
+			path = MGEQuickFRC;
+			sourceTree = "<group>";
+		};
 		724B706A1BBD5AE9008F2550 /* entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,10 +176,9 @@
 				7238EA0A19E57771001E42B7 /* MGECoreDataKit.h */,
 				72F295301AF0C73500457363 /* MGECoreDataStack.h */,
 				72F295311AF0C73500457363 /* MGECoreDataStack.m */,
-				7299D20119E571E90092CB2C /* MGEQuickFRC.h */,
-				7299D20219E571E90092CB2C /* MGEQuickFRC.m */,
 				724B70611BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.h */,
 				724B70621BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m */,
+				32F747C01C42A7A50051CA27 /* MGEQuickFRC */,
 			);
 			path = MGECoreDataKit;
 			sourceTree = "<group>";
@@ -265,14 +283,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32F747C31C42A7A50051CA27 /* MGEQuickFRC.m in Sources */,
 				724B70701BBD5AE9008F2550 /* Event.m in Sources */,
 				7299D1F419E56C820092CB2C /* MasterViewController.m in Sources */,
+				32F747C91C42A7DB0051CA27 /* MGEQuickFRCCollectionViewHandler.m in Sources */,
 				724B70631BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m in Sources */,
 				724B706F1BBD5AE9008F2550 /* Event+CoreDataProperties.m in Sources */,
 				72F295321AF0C73500457363 /* MGECoreDataStack.m in Sources */,
 				7299D1B119E56C0F0092CB2C /* AppDelegate.m in Sources */,
-				7299D20419E571E90092CB2C /* MGEQuickFRC.m in Sources */,
 				7299D1AE19E56C0F0092CB2C /* main.m in Sources */,
+				32F747C61C42A7CE0051CA27 /* MGEQuickFRCTableViewHandler.m in Sources */,
 				7299D1F919E56CF20092CB2C /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
