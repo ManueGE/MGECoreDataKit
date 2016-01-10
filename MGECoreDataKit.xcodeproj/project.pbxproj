@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		32F747C31C42A7A50051CA27 /* MGEQuickFRC.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F747C21C42A7A50051CA27 /* MGEQuickFRC.m */; };
-		32F747C61C42A7CE0051CA27 /* MGEQuickFRCTableViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F747C51C42A7CE0051CA27 /* MGEQuickFRCTableViewHandler.m */; };
-		32F747C91C42A7DB0051CA27 /* MGEQuickFRCCollectionViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F747C81C42A7DB0051CA27 /* MGEQuickFRCCollectionViewHandler.m */; };
+		32F747D01C42B1610051CA27 /* MGEQuickFRC.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F747CB1C42B1610051CA27 /* MGEQuickFRC.m */; };
+		32F747D11C42B1610051CA27 /* MGEQuickFRCCollectionViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F747CD1C42B1610051CA27 /* MGEQuickFRCCollectionViewHandler.m */; };
+		32F747D21C42B1610051CA27 /* MGEQuickFRCTableViewHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F747CF1C42B1610051CA27 /* MGEQuickFRCTableViewHandler.m */; };
 		724B70631BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 724B70621BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m */; };
 		724B706F1BBD5AE9008F2550 /* Event+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 724B706C1BBD5AE9008F2550 /* Event+CoreDataProperties.m */; };
 		724B70701BBD5AE9008F2550 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 724B706E1BBD5AE9008F2550 /* Event.m */; };
@@ -35,12 +35,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		32F747C11C42A7A50051CA27 /* MGEQuickFRC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGEQuickFRC.h; sourceTree = "<group>"; };
-		32F747C21C42A7A50051CA27 /* MGEQuickFRC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGEQuickFRC.m; sourceTree = "<group>"; };
-		32F747C41C42A7CE0051CA27 /* MGEQuickFRCTableViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGEQuickFRCTableViewHandler.h; sourceTree = "<group>"; };
-		32F747C51C42A7CE0051CA27 /* MGEQuickFRCTableViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGEQuickFRCTableViewHandler.m; sourceTree = "<group>"; };
-		32F747C71C42A7DB0051CA27 /* MGEQuickFRCCollectionViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGEQuickFRCCollectionViewHandler.h; sourceTree = "<group>"; };
-		32F747C81C42A7DB0051CA27 /* MGEQuickFRCCollectionViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGEQuickFRCCollectionViewHandler.m; sourceTree = "<group>"; };
+		32F747CA1C42B1610051CA27 /* MGEQuickFRC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGEQuickFRC.h; sourceTree = "<group>"; };
+		32F747CB1C42B1610051CA27 /* MGEQuickFRC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGEQuickFRC.m; sourceTree = "<group>"; };
+		32F747CC1C42B1610051CA27 /* MGEQuickFRCCollectionViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGEQuickFRCCollectionViewHandler.h; sourceTree = "<group>"; };
+		32F747CD1C42B1610051CA27 /* MGEQuickFRCCollectionViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGEQuickFRCCollectionViewHandler.m; sourceTree = "<group>"; };
+		32F747CE1C42B1610051CA27 /* MGEQuickFRCTableViewHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGEQuickFRCTableViewHandler.h; sourceTree = "<group>"; };
+		32F747CF1C42B1610051CA27 /* MGEQuickFRCTableViewHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGEQuickFRCTableViewHandler.m; sourceTree = "<group>"; };
 		7238EA0A19E57771001E42B7 /* MGECoreDataKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGECoreDataKit.h; sourceTree = "<group>"; };
 		724B70611BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+MGECoreDataKit.h"; sourceTree = "<group>"; };
 		724B70621BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+MGECoreDataKit.m"; sourceTree = "<group>"; };
@@ -84,19 +84,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		32F747C01C42A7A50051CA27 /* MGEQuickFRC */ = {
-			isa = PBXGroup;
-			children = (
-				32F747C11C42A7A50051CA27 /* MGEQuickFRC.h */,
-				32F747C21C42A7A50051CA27 /* MGEQuickFRC.m */,
-				32F747C41C42A7CE0051CA27 /* MGEQuickFRCTableViewHandler.h */,
-				32F747C51C42A7CE0051CA27 /* MGEQuickFRCTableViewHandler.m */,
-				32F747C71C42A7DB0051CA27 /* MGEQuickFRCCollectionViewHandler.h */,
-				32F747C81C42A7DB0051CA27 /* MGEQuickFRCCollectionViewHandler.m */,
-			);
-			path = MGEQuickFRC;
-			sourceTree = "<group>";
-		};
 		724B706A1BBD5AE9008F2550 /* entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,7 +165,12 @@
 				72F295311AF0C73500457363 /* MGECoreDataStack.m */,
 				724B70611BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.h */,
 				724B70621BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m */,
-				32F747C01C42A7A50051CA27 /* MGEQuickFRC */,
+				32F747CA1C42B1610051CA27 /* MGEQuickFRC.h */,
+				32F747CB1C42B1610051CA27 /* MGEQuickFRC.m */,
+				32F747CC1C42B1610051CA27 /* MGEQuickFRCCollectionViewHandler.h */,
+				32F747CD1C42B1610051CA27 /* MGEQuickFRCCollectionViewHandler.m */,
+				32F747CE1C42B1610051CA27 /* MGEQuickFRCTableViewHandler.h */,
+				32F747CF1C42B1610051CA27 /* MGEQuickFRCTableViewHandler.m */,
 			);
 			path = MGECoreDataKit;
 			sourceTree = "<group>";
@@ -283,16 +275,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32F747C31C42A7A50051CA27 /* MGEQuickFRC.m in Sources */,
 				724B70701BBD5AE9008F2550 /* Event.m in Sources */,
 				7299D1F419E56C820092CB2C /* MasterViewController.m in Sources */,
-				32F747C91C42A7DB0051CA27 /* MGEQuickFRCCollectionViewHandler.m in Sources */,
+				32F747D11C42B1610051CA27 /* MGEQuickFRCCollectionViewHandler.m in Sources */,
 				724B70631BBD555A008F2550 /* NSManagedObjectContext+MGECoreDataKit.m in Sources */,
 				724B706F1BBD5AE9008F2550 /* Event+CoreDataProperties.m in Sources */,
 				72F295321AF0C73500457363 /* MGECoreDataStack.m in Sources */,
 				7299D1B119E56C0F0092CB2C /* AppDelegate.m in Sources */,
 				7299D1AE19E56C0F0092CB2C /* main.m in Sources */,
-				32F747C61C42A7CE0051CA27 /* MGEQuickFRCTableViewHandler.m in Sources */,
+				32F747D21C42B1610051CA27 /* MGEQuickFRCTableViewHandler.m in Sources */,
+				32F747D01C42B1610051CA27 /* MGEQuickFRC.m in Sources */,
 				7299D1F919E56CF20092CB2C /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
