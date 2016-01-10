@@ -181,6 +181,10 @@ NSString * const MGEQuickFRCFetchBatchSizeKey = @"MGEQuickFRCFetchBatchSizeKey";
         [self.tableViewHandler controllerDidChangeContent:controller];
         [self.collectionViewHandler controllerDidChangeContent:controller];
         
+        if (self.didChangeBlock) {
+            self.didChangeBlock(self);
+        }
+        
     });
 }
 

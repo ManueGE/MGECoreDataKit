@@ -29,6 +29,9 @@
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate methods
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    
+}
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath
      forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
