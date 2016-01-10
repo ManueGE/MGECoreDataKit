@@ -81,10 +81,10 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "MGECoreDataKit/MGECoreDataKit/*.{h,m}"
+  s.source_files  = "MGECoreDataKit/MGECoreDataKit/**/*.{h,m}"
   #s.exclude_files = "MGECoreDataKit/Exclude"
   s.requires_arc      = true
-  s.public_header_files = "MGECoreDataKit/MGECoreDataKit/*.h"
+  s.public_header_files = "MGECoreDataKit/MGECoreDataKit/**/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
