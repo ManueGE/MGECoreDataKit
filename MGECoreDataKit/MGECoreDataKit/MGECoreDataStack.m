@@ -164,6 +164,37 @@ static NSString * DefaultModelName;
     return _persistentStoreCoordinator;
 }
 
+#pragma mark - clean
+- (void)clean:(NSError *__autoreleasing *)error {
+    MGECoreDataStack * stack = self;
+    NSPersistentStoreCoordinator * coordinator = stack.persistentStoreCoordinator;
+    // NSManagedObjectModel * model = stack.managedObjectModel;
+    NSURL * storeURL = coordinator.persistentStores.firstObject.URL;
+    
+    if ([coordinator respondsToSelector:@selector(destroyPersistentStoreAtURL:withType:options:error:)]) {
+        [coordinator destroyPersistentStoreAtURL:storeURL
+                                        withType:NSSQLiteStoreType
+                                         options:nil
+                                           error:error];
+    }
+    
+    else {
+        NSFileManager * manager = [NSFileManager defaultManager];
+        [coordinator performBlockAndWait:^{
+            [coordinator removePersistentStore:coordinator.persistentStores.firstObject
+                                         error:error];
+            [manager removeItemAtURL:storeURL error:error];
+            [manager removeItemAtURL:[storeURL URLByAppendingPathComponent:@"-shm"] error:nil];
+            [manager removeItemAtURL:[storeURL URLByAppendingPathComponent:@"-wal"] error:nil];
+        }];
+    }
+    
+    // Setup new stack
+    stack->_persistentStoreCoordinator = nil;
+    stack->_managedObjectModel = nil;
+    stack->_managedObjectContext = nil;
+}
+
 #pragma mark - Application's Documents directory
 
 // Returns the URL to the application's Documents directory.
