@@ -8,6 +8,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
+@class MGEQuickFRC;
+typedef void(^MGEQuickFRCContentDidChangeBlock)(MGEQuickFRC * controller);
+
 /*!
  This class tries to encapsulate the boilerplate code that usually is added to a view controller when using a `NSFetchedResultsController` object.
  A `UITableView` or a `UICollectionView` can be assigned to instances of this class, and then will be updated on every update, insertion or deletion in the data model.
@@ -31,6 +34,8 @@
 @property (nonatomic, strong) UITableView * tableView;
 /// The collection view which will be updated when the content changes
 @property (nonatomic, strong) UICollectionView * collectionView;
+/// This block is called (if exists) when a change did occurred
+@property (nonatomic, copy) MGEQuickFRCContentDidChangeBlock didChangeBlock;
 
 
 /*!

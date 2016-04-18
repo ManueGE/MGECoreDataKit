@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MGECoreDataKit"
-  s.version      = "1.1.4"
+  s.version      = "1.2.0"
   s.summary      = "Helper classes for handle CoreData"
   s.description  = "`MGECoreDataStack`: Used to encapsulate all the core data stack.
                     `MGEQuickFRC`: This class tries to encapsulate the boilerplate code that usually is added to a view controller when using a `NSFetchedResultsController` object.  A `UITableView` or a `UICollectionView` can be assigned to instances of this class, and then will be updated on every update, insertion or deletion in the data model"
@@ -70,7 +70,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/ManueGE/MGECoreDataKit.git", :tag => "1.1.4" }
+  s.source       = { :git => "https://github.com/ManueGE/MGECoreDataKit.git", :tag => "1.2.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -81,10 +81,10 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "MGECoreDataKit/MGECoreDataKit/*.{h,m}"
+  s.source_files  = "MGECoreDataKit/MGECoreDataKit/**/*.{h,m}"
   #s.exclude_files = "MGECoreDataKit/Exclude"
   s.requires_arc      = true
-  s.public_header_files = "MGECoreDataKit/MGECoreDataKit/*.h"
+  s.public_header_files = "MGECoreDataKit/MGECoreDataKit/**/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
