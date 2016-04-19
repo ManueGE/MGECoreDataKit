@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSMutableArray *deletedRowIndexPaths;
 @property (nonatomic, strong) NSMutableArray *insertedRowIndexPaths;
 @property (nonatomic, strong) NSMutableArray *updatedRowIndexPaths;
+@property (nonatomic, strong) NSMutableArray *movedRowsIndexPaths;
 
 @end
 
@@ -51,12 +52,9 @@
         
         [self.deletedRowIndexPaths addObject:indexPath];
     } else if (type == NSFetchedResultsChangeMove) {
-        if ([self.insertedSectionIndexes containsIndex:newIndexPath.section] == NO) {
-            [self.insertedRowIndexPaths addObject:newIndexPath];
-        }
-        
-        if ([self.deletedSectionIndexes containsIndex:indexPath.section] == NO) {
-            [self.deletedRowIndexPaths addObject:indexPath];
+        if (indexPath && newIndexPath && ![indexPath isEqual:newIndexPath]) {
+            NSArray * array = @[indexPath, newIndexPath];
+            [self.movedRowsIndexPaths addObject:array];
         }
     } else if (type == NSFetchedResultsChangeUpdate) {
         [self.updatedRowIndexPaths addObject:indexPath];
@@ -92,6 +90,11 @@
         [self.tableView insertRowsAtIndexPaths:self.insertedRowIndexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.tableView reloadRowsAtIndexPaths:self.updatedRowIndexPaths withRowAnimation:UITableViewRowAnimationNone];
         
+        for (NSArray * paths in self.movedRowsIndexPaths) {
+            [self.tableView moveRowAtIndexPath:paths.firstObject
+                                   toIndexPath:paths.lastObject];
+        }
+        
         [self.tableView endUpdates];
     }
     
@@ -105,6 +108,7 @@
         self.deletedRowIndexPaths = nil;
         self.insertedRowIndexPaths = nil;
         self.updatedRowIndexPaths = nil;
+        self.movedRowsIndexPaths = nil;
     }
 }
 
@@ -157,6 +161,14 @@
     }
     
     return _updatedRowIndexPaths;
+}
+
+- (NSMutableArray *)movedRowsIndexPaths {
+    if (_movedRowsIndexPaths == nil) {
+        _movedRowsIndexPaths = [[NSMutableArray alloc] init];
+    }
+    
+    return _movedRowsIndexPaths;
 }
 
 @end
