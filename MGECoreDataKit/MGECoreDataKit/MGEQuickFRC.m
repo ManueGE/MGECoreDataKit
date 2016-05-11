@@ -7,17 +7,18 @@
 
 #import "MGEQuickFRC.h"
 
+#import "MGEQuickFRCTableViewHandler.h"
+#import "MGEQuickFRCCollectionViewHandler.h"
+
 NSString * const MGEQuickFRCParamsPredicateKey = @"MGEQuickFRCParamsPredicateKey";
 NSString * const MGEQuickFRCParamsSectionNameKeyPathKey = @"MGEQuickFRCParamsSectionNameKeyPathKey";
 NSString * const MGEQuickFRCParamsCacheNameKey = @"MGEQuickFRCParamsCacheNameKey";
 NSString * const MGEQuickFRCFetchBatchSizeKey = @"MGEQuickFRCFetchBatchSizeKey";
 
 @interface MGEQuickFRC () <NSFetchedResultsControllerDelegate>
-{
-    NSMutableArray *_objectChanges;
-    NSMutableArray *_sectionChanges;
-}
 @property (nonatomic, strong) NSFetchedResultsController * fetchedResultsController;
+@property (nonatomic, strong) MGEQuickFRCTableViewHandler * tableViewHandler;
+@property (nonatomic, strong) MGEQuickFRCCollectionViewHandler * collectionViewHandler;
 @end
 
 @implementation MGEQuickFRC
@@ -35,10 +36,7 @@ NSString * const MGEQuickFRCFetchBatchSizeKey = @"MGEQuickFRCFetchBatchSizeKey";
         _managedObjectContext = context;
         _sortDescriptors = sortDescriptors;
         _params = params.copy;
-        
-        _objectChanges = [NSMutableArray array];
-        _sectionChanges = [NSMutableArray array];
-        
+
     }
     
     return self;
@@ -129,9 +127,8 @@ NSString * const MGEQuickFRCFetchBatchSizeKey = @"MGEQuickFRCFetchBatchSizeKey";
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.tableView) {
-            [self.tableView beginUpdates];
-        }
+        [self.tableViewHandler controllerWillChangeContent:controller];
+        [self.collectionViewHandler controllerWillChangeContent:controller];
     });
     
     
@@ -139,107 +136,39 @@ NSString * const MGEQuickFRCFetchBatchSizeKey = @"MGEQuickFRCFetchBatchSizeKey";
 
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    
     dispatch_async(dispatch_get_main_queue(), ^{
-        //Table view
-        UITableView *tableView = self.tableView;
-        if (tableView) {
-            
-            switch(type) {
-                    
-                case NSFetchedResultsChangeInsert:
-                    [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-                    break;
-                    
-                case NSFetchedResultsChangeDelete:
-                    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-                    break;
-                    
-                case NSFetchedResultsChangeUpdate:
-                    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-                    break;
-                    
-                case NSFetchedResultsChangeMove:
-                    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-                    [tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-                    
-                    
-                    break;
-            }
-            
-        }
         
+        [self.tableViewHandler controller:controller
+                          didChangeObject:anObject
+                              atIndexPath:indexPath
+                            forChangeType:type
+                             newIndexPath:newIndexPath];
         
-        //Collection
-        UICollectionView * collectionView = self.collectionView;
-        if (collectionView) {
-            
-            NSMutableDictionary *change = [NSMutableDictionary new];
-            switch(type)
-            {
-                case NSFetchedResultsChangeInsert:
-                    change[@(type)] = newIndexPath;
-                    break;
-                case NSFetchedResultsChangeDelete:
-                    change[@(type)] = indexPath;
-                    break;
-                case NSFetchedResultsChangeUpdate:
-                    change[@(type)] = indexPath;
-                    break;
-                case NSFetchedResultsChangeMove:
-                    change[@(type)] = @[indexPath, newIndexPath];
-                    break;
-            }
-            [_objectChanges addObject:change];
-            
-        }
+        [self.collectionViewHandler controller:controller
+                               didChangeObject:anObject
+                                   atIndexPath:indexPath
+                                 forChangeType:type
+                                  newIndexPath:newIndexPath];
     });
     
 }
 
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id )sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    
     dispatch_async(dispatch_get_main_queue(), ^{
-        //Table view
-        if (self.tableView) {
-            
-            switch(type) {
-                    
-                case NSFetchedResultsChangeInsert:
-                    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
-                    break;
-                    
-                case NSFetchedResultsChangeDelete:
-                    [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationAutomatic];
-                    break;
-                    
-                default:
-                    break;
-            }
-            
-        }
         
+        [self.tableViewHandler controller:controller
+                         didChangeSection:sectionInfo
+                                  atIndex:sectionIndex
+                            forChangeType:type];
         
-        //Collection
-        UICollectionView * collectionView = self.collectionView;
-        if (collectionView) {
-            
-            NSMutableDictionary *change = [NSMutableDictionary new];
-            
-            switch(type) {
-                case NSFetchedResultsChangeInsert:
-                    change[@(type)] = @(sectionIndex);
-                    break;
-                case NSFetchedResultsChangeDelete:
-                    change[@(type)] = @(sectionIndex);
-                    break;
-                    
-                default:
-                    break;
-            }
-            
-            [_sectionChanges addObject:change];
-            
-        }
+        [self.collectionViewHandler controller:controller
+                              didChangeSection:sectionInfo
+                                       atIndex:sectionIndex
+                                 forChangeType:type];
+        
     });
     
 }
@@ -248,105 +177,42 @@ NSString * const MGEQuickFRCFetchBatchSizeKey = @"MGEQuickFRCFetchBatchSizeKey";
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        // The fetch controller has sent all current change notifications, so tell the table view to process all updates.
-        if (self.tableView) {
-            [self.tableView endUpdates];
+        
+        [self.tableViewHandler controllerDidChangeContent:controller];
+        [self.collectionViewHandler controllerDidChangeContent:controller];
+        
+        if (self.didChangeBlock) {
+            self.didChangeBlock(self);
         }
         
-        
-        if (self.collectionView) {
-            
-            if (!self.collectionView.window) {
-                [self.collectionView reloadData];
-                
-                [_sectionChanges removeAllObjects];
-                [_objectChanges removeAllObjects];
-                return;
-                
-            }
-            
-            if ([_sectionChanges count] > 0)
-            {
-                [self.collectionView performBatchUpdates:^{
-                    
-                    for (NSDictionary *change in _sectionChanges)
-                    {
-                        [change enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, id obj, BOOL *stop) {
-                            
-                            NSFetchedResultsChangeType type = [key unsignedIntegerValue];
-                            switch (type)
-                            {
-                                case NSFetchedResultsChangeInsert:
-                                    [self.collectionView insertSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
-                                    break;
-                                case NSFetchedResultsChangeDelete:
-                                    [self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
-                                    break;
-                                case NSFetchedResultsChangeUpdate:
-                                    [self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:[obj unsignedIntegerValue]]];
-                                    break;
-                                    
-                                default:
-                                    break;
-                            }
-                            
-                        }];
-                    }
-                } completion:nil];
-            }
-            
-            if ([_objectChanges count] > 0 && [_sectionChanges count] == 0) {
-                [self.collectionView performBatchUpdates:^{
-                    
-                    for (NSDictionary *change in _objectChanges)
-                    {
-                        
-                        id key = change.allKeys.lastObject;
-                        id obj = change[key];
-                        
-                        NSFetchedResultsChangeType type = [key unsignedIntegerValue];
-                        switch (type)
-                        {
-                            case NSFetchedResultsChangeInsert:
-                                [self.collectionView insertItemsAtIndexPaths:@[obj]];
-                                break;
-                            case NSFetchedResultsChangeDelete:
-                                [self.collectionView deleteItemsAtIndexPaths:@[obj]];
-                                break;
-                            case NSFetchedResultsChangeUpdate:
-                                [self.collectionView reloadItemsAtIndexPaths:@[obj]];
-                                break;
-                            case NSFetchedResultsChangeMove:
-                            {
-                                NSIndexPath * indexPath = obj[0];
-                                NSIndexPath * newIndexPath = obj[1];
-                                
-                                if (indexPath.section != newIndexPath.section ||
-                                    indexPath.item != newIndexPath.item) {
-                                    
-                                    [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
-                                    [self.collectionView insertItemsAtIndexPaths:@[newIndexPath ]];
-                                }
-                                
-                                else {
-                                    [self.collectionView moveItemAtIndexPath:obj[0] toIndexPath:obj[1]];
-                                }
-                                
-                            }
-                                break;
-                                
-                            default:
-                                break;
-                        }
-                        
-                    }
-                } completion:nil];
-            }
-            
-            [_sectionChanges removeAllObjects];
-            [_objectChanges removeAllObjects];
-        }
     });
 }
 
+#pragma mark - Handler accessors
+- (void) setTableView:(UITableView *)tableView {
+    
+    MGEQuickFRCTableViewHandler * handler = nil;
+    if (tableView) {
+        handler = [[MGEQuickFRCTableViewHandler alloc] initWithTableView:tableView];
+    }
+    
+    self.tableViewHandler = handler;
+}
+
+- (UITableView *)tableView {
+    return self.tableViewHandler.tableView;
+}
+
+- (void)setCollectionView:(UICollectionView *)collectionView {
+    MGEQuickFRCCollectionViewHandler * handler = nil;
+    if (collectionView) {
+        handler = [[MGEQuickFRCCollectionViewHandler alloc] initWithCollectionView:collectionView];
+    }
+    
+    self.collectionViewHandler = handler;
+}
+
+- (UICollectionView *)collectionView {
+    return self.collectionViewHandler.collectionView;
+}
 @end

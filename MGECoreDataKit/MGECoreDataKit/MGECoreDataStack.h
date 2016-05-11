@@ -69,4 +69,9 @@
  */
 - (BOOL) saveContext:(NSError **) error;
 
+/*!
+ Clean all the content of the receiver and recreate its context, store and model
+ */
+- (void) clean:(NSError **) error;
+
 @end
