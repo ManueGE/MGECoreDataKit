@@ -56,6 +56,9 @@
             NSArray * array = @[indexPath, newIndexPath];
             [self.movedRowsIndexPaths addObject:array];
         }
+        else {
+            [self.updatedRowIndexPaths addObject:indexPath];
+        }
     } else if (type == NSFetchedResultsChangeUpdate) {
         [self.updatedRowIndexPaths addObject:indexPath];
     }
